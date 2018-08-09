@@ -118,7 +118,7 @@ class ApiController extends Controller
 
               $message->from('testapi@testapi.com', 'Test Api');
 
-              $message->to('adsmander@gmail.com');
+              $message->to($user_email);
 
           });
         } catch (Exception  $e) {
