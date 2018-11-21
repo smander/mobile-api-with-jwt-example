@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\User;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
@@ -71,9 +70,7 @@ class AuthController extends Controller
             return response()->json(['success' => false, 'error' => 'Failed to login, please try again.'], 500);
         }
 
-        // all good so return the token and return avatar
-        $user = User::where('email', $request->email)->first();
-        return response()->json(['token'=> $token,'avatar'  =>  $user->avatar ]);
+        return response()->json(['token'=> $token]);
     }
 
 

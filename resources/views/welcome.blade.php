@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    TrafficSwitcher Demo
+                    Mobile API with JWT Demo
                 </div>
 
                 <div class="links">
