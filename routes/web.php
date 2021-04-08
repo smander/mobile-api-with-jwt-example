@@ -18,20 +18,20 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('users')->group(function () {
 
-## Projects Routes
+    Route::get('/update/{id}',[
+        'as' => 'users.update',
+        'uses' => 'UserController@update'
+    ]);
 
-Route::get('/project/list', 'ProjectController@index')->name('project/list');
-Route::get('/project/create', 'ProjectController@create')->name('project/create');
-Route::post('/project/store', 'ProjectController@store');
+    Route::post('/update',[
+        'as' => 'users.updateProfile',
+        'uses' => 'UserController@updateProfile'
+    ]);
+});
 
-## Adwords Routes
 
-Route::get('/adwords/list', 'AdwordsPanelController@index')->name('adwords/list');
-Route::get('/adwords/create', 'AdwordsPanelController@create')->name('adwords/create');
-Route::post('/project/store', 'ProjectController@store');
 
-## Settings Routes
 
-Route::get('/settings/list', 'SettingsPanelController@index')->name('settings/list');
+Route::get('/home', 'UserController@index')->name('home');

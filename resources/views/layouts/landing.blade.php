@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <title>TrafficSwitcher : Dasboard </title>
+    <title>Users Project : Dashboard </title>
         <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Bootstrap Core CSS -->
@@ -42,7 +42,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Traffic Switcher Demo') }}
+                        {{ config('app.name', 'Auth test app') }}
                     </a>
                 </div>
 

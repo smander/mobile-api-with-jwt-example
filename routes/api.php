@@ -13,25 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('cors','auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => ['cors']], function() {
+    Route::post('register', 'AuthController@register')->middleware('cors');
+    Route::post('login', 'AuthController@login')->middleware('cors');
+    Route::post('recover', 'AuthController@recover')->middleware('cors');
 });
 
+//MetaData Routes
+Route::prefix('users')->group(function () {
 
-Route::post('register', 'AuthController@register')->middleware('cors');
-Route::post('login', 'AuthController@login')->middleware('cors');
-Route::post('recover', 'AuthController@recover')->middleware('cors');
+    Route::post('create', 'AuthController@register');
+    Route::post('update/{id}', 'AuthController@update');
+    Route::get('/', 'AuthController@');
+});
 
 Route::group(['middleware' => ['cors','jwt.auth']], function() {
     Route::get('logout', 'AuthController@logout');
-});
-
-
-Route::post('/github/email', 'ApiController@store')->middleware('jwt.auth');
-
-Route::get('send_test_email', function(){
-	Mail::raw('Sending emails with Mailgun and Laravel is easy!', function($message)
-	{
-		$message->to('johndoe@gmail.com');
-	});
 });
