@@ -1,14 +1,12 @@
-# mobile-api-with-jwt-example
-Mobile Api with test data - Getting From Github Users and Email them
+
+Mobile Api with test data
 
 
 Steps to install
 
 1) composer install
-2) php artisan migrate install and php artisan migrate
+2) php artisan migrate
 3) configure .env with mail credits
-
-
 
 
 
@@ -20,7 +18,7 @@ REST Methods
 
 * **URL**
 
-  /api/register
+  /api/users/create
 
 * **Method:**
 
@@ -31,8 +29,9 @@ REST Methods
    **Required:**
  
    `email=[string]`
+   `first_name=[string]`
+   `last_name=[string]`
    `password=[string]`
-   `avatar=[mime type]'
 
 * **Data Params**
 
@@ -90,41 +89,7 @@ REST Methods
   * **Code:** 401 UNAUTHORIZED <br />
   
   
-  
-**SEND EMAIL GITHUB Users**
-
-* **URL**
-
-  /api/github/email
-
-* **Method:**
-
-  `POST`
-  
-*  **URL Params**
-
-   **Required:**
  
-   `username_list[]=[string]` (can accept more than 1 element)
-   `message=[string]`
-
-* **Data Params**
-
-  None
-
-* **Success Response:**
-
-  * **Code:** 200 <br />
-    **Content:** `{ {"success":true,"data":[{"user_location":"France","user_email":"hello@knplabs.com"},{"user_location":"France","user_email":"hello@knplabs.com"}]}}`
- 
-* **Error Response:**
-
-  * **Code:** 500 Failed <br />
-    **Content:** `{ error : "Failed to login, please try again." }`
-
-  OR
-
-  * **Code:** 401 UNAUTHORIZED <br />
   
   
   
