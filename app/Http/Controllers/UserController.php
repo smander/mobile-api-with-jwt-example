@@ -38,6 +38,17 @@ class UserController extends Controller
         return view('home',$params);
     }
 
+    /**
+     * Show all users
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getAllUsers()
+    {
+        $users = $this->userService->getAllUsers();
+
+        return response()->json($users);
+    }
 
     /*
      *

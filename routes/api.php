@@ -19,12 +19,12 @@ Route::group(['middleware' => ['cors']], function() {
     Route::post('recover', 'AuthController@recover')->middleware('cors');
 });
 
-//MetaData Routes
+//User Routes
 Route::prefix('users')->group(function () {
 
     Route::post('create', 'AuthController@register');
     Route::post('update/{id}', 'AuthController@update');
-    Route::get('/', 'AuthController@');
+    Route::get('/', 'UserController@getAllUsers');
 });
 
 Route::group(['middleware' => ['cors','jwt.auth']], function() {
